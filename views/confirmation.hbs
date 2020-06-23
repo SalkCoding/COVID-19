@@ -6,7 +6,18 @@
     <div class="mb-4">
         <h3 class="w-full border-b border-gray-400 text-xl mb-2">국내 코로나 현황</h3>
         <p class="ml-2">
-            아무말
+        <table class="table-auto" id="cityStateTable">
+            <tr>
+                <th class="px-4 py-2">City</th>
+                <th class="px-4 py-2">Confirm Cases</th>
+            </tr>
+            {{#each data}}
+                <tr>
+                    <td class="border px-4 py-2">{{city}}</td>
+                    <td class="border px-4 py-2">{{case}}</td>
+                </tr>
+            {{/each}}
+        </table>
         </p>
     </div>
 </div>

@@ -6,7 +6,29 @@
     <div class="mb-4">
         <h3 class="w-full border-b border-gray-400 text-xl mb-2">세계 코로나 현황</h3>
         <p class="ml-2">
-            아무말
+        Last updated date : {{Date}}
+        <table class="table-auto" id="worldStateTable">
+            <tr>
+                <th class="px-4 py-2">Country</th>
+                <th class="px-4 py-2">NewConfirmed</th>
+                <th class="px-4 py-2">TotalConfirmed</th>
+                <th class="px-4 py-2">NewDeaths</th>
+                <th class="px-4 py-2">TotalDeaths</th>
+                <th class="px-4 py-2">NewRecovered</th>
+                <th class="px-4 py-2">TotalRecovered</th>
+            </tr>
+            {{#each Countries}}
+                <tr>
+                    <td class="border px-4 py-2">{{Country}}</td>
+                    <td class="border px-4 py-2">{{NewConfirmed}}</td>
+                    <td class="border px-4 py-2">{{TotalConfirmed}}</td>
+                    <td class="border px-4 py-2">{{NewDeaths}}</td>
+                    <td class="border px-4 py-2">{{TotalDeaths}}</td>
+                    <td class="border px-4 py-2">{{NewRecovered}}</td>
+                    <td class="border px-4 py-2">{{TotalRecovered}}</td>
+                </tr>
+            {{/each}}
+        </table>
         </p>
     </div>
 </div>
