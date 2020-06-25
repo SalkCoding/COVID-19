@@ -4,8 +4,8 @@
         <a href="/confirmation-global" class="px-6 py-2 bg-white text-black rounded-full shadow-md">World</a>
     </div>
     <div class="mb-4">
-        <h3 class="w-full border-b border-gray-400 text-xl mb-2">국내 코로나 현황</h3>
-        <p class="ml-2">
+        <h3 class="w-full border-b border-gray-400 text-xl mb-2">Domestic status</h3>
+        <p class="text-red-600">Numbers in ( ) refer to daily change</p>
         <table class="table-auto" id="cityStateTable">
             <tr>
                 <th class="px-4 py-2">City</th>
@@ -18,6 +18,10 @@
                 </tr>
             {{/each}}
         </table>
+        <p class="ml-2">Data from
+            <a class="text-blue-400" target="_blank"
+               href="http://ncov.mohw.go.kr/en/bdBoardList.do?brdId=16&brdGubun=162&dataGubun=&ncvContSeq=&contSeq=&board_id=&gubun=">
+                Republic of Korea Ministry of Health and Welfare</a>
         </p>
     </div>
 </div>

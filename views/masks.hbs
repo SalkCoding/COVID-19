@@ -1,18 +1,18 @@
 <div class="rounded-lg shadow-lg p-4 keep-all bg-white">
     <div class="mb-4">
-        <h3 class="w-full border-b border-gray-400 text-xl mb-2">Masks state</h3>
-        <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-                onclick="onClicked()">
-            Re-search
-        </button>
+        <h3 class="w-full border-b border-gray-400 text-xl mb-4">Masks state</h3>
+        <div class="mb-2">
+            <button onclick="onSearch()" class="mb-4 bg-transparent hover:bg-blue-500 text-black hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full shadow-md">Search</button>
+            <button onclick="onLocation()" class="bg-transparent hover:bg-blue-500 text-black hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full shadow-md">Current location</button>
+        </div>
         <p class="ml-2">
         <table class="table-auto" id="maskStateTable">
             <tr>
                 <th class="px-4 py-2">Address</th>
                 <th class="px-4 py-2">Store Name</th>
                 <th class="px-4 py-2">Created at</th>
-                <th class="px-4 py-2">Remain stat</th>
                 <th class="px-4 py-2">Stock at</th>
+                <th class="px-4 py-2">Remain stat</th>
                 <th class="px-4 py-2">Type</th>
             </tr>
             {{#each stores}}
@@ -20,8 +20,8 @@
                     <td class="border px-4 py-2">{{addr}}</td>
                     <td class="border px-4 py-2">{{name}}</td>
                     <td class="border px-4 py-2">{{created_at}}</td>
-                    <td class="border px-4 py-2">{{remain_stat}}</td>
                     <td class="border px-4 py-2">{{stock_at}}</td>
+                    <td class="border px-4 py-2">{{remain_stat}}</td>
                     <td class="border px-4 py-2">{{type}}</td>
                 </tr>
             {{/each}}
@@ -29,9 +29,25 @@
     </div>
 </div>
 <script>
-    function onClicked() {
+    function onSearch() {
         const date = new Date();
         document.cookie = `coordinate=;expires=${date.toUTCString()};path=/`
-        window.location.href = '/masks'
+        window.location.href = '/masks/search'
+    }
+
+    function onLocation() {
+        if (!navigator.geolocation) {
+            alert("Geolocation is not supported by your browser")
+        } else {
+            const date = new Date();
+            navigator.geolocation.getCurrentPosition((pos) => {
+                date.setTime(date.getTime() + 300000);
+                document.cookie = `coordinate=${pos.coords.latitude}, ${pos.coords.longitude};expires=${date.toUTCString()};path=/`
+                window.location.href = `/masks/result?lat=${pos.coords.latitude}&lng=${pos.coords.longitude}`
+            }, () => {
+                window.location.href = '/masks'
+                alert("Sorry, no position available.")
+            });
+        }
     }
 </script>

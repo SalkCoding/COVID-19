@@ -4,9 +4,8 @@
         <a href="/confirmation-global" class="px-6 py-2 bg-blue-500 text-white rounded-full shadow-md">World</a>
     </div>
     <div class="mb-4">
-        <h3 class="w-full border-b border-gray-400 text-xl mb-2">세계 코로나 현황</h3>
-        <p class="ml-2">
-        Last updated date : {{Date}}
+        <h3 class="w-full border-b border-gray-400 text-xl mb-2">World status</h3>
+        <p class="ml-2">Last updated date : {{Date}}</p>
         <table class="table-auto" id="worldStateTable">
             <tr>
                 <th class="px-4 py-2">Country</th>
@@ -29,6 +28,6 @@
                 </tr>
             {{/each}}
         </table>
-        </p>
+        <p class="ml-2">Data from <a class="text-blue-400" target="_blank" href="https://covid19api.com">COVID 19 API</a></p>
     </div>
 </div>

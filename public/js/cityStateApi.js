@@ -10,7 +10,7 @@ const dictionary = {
 };
 
 module.exports.refreshState = async () => {
-    const response = await fetch('http://ncov.mohw.go.kr')
+    const response = await fetch('http://ncov.mohw.go.kr/en/bdBoardList.do?brdId=16&brdGubun=162&dataGubun=&ncvContSeq=&contSeq=&board_id=&gubun=')
     const body = await response.text()
 
     const $ = cheerio.load(body)
